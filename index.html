@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <!-- 关键：必须加上这个视口标签，手机才会正常适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人旅游日记</title>
     <style>
@@ -16,18 +17,18 @@
             color: #333;
         }
 
-        /* 高级渐变导航 */
+        /* 导航 */
         nav {
             width: 100%;
             background: linear-gradient(135deg, #2c3e50, #4a6278);
-            padding: 18px 0;
+            padding: 15px 0;
             text-align: center;
             box-shadow: 0 2px 12px rgba(0,0,0,0.1);
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 15px;
             font-size: 15px;
             letter-spacing: 1px;
             opacity: 0.9;
@@ -38,10 +39,10 @@
             color: #a8d8ff;
         }
 
-        /* 全屏高级横幅 */
+        /* 全屏横幅 */
         .banner {
             width: 100%;
-            height: 320px;
+            height: 220px;
             background: url("https://picsum.photos/id/1036/1920/600") center/cover no-repeat;
             position: relative;
         }
@@ -55,23 +56,23 @@
             background: rgba(0,0,0,0.25);
         }
 
-        /* 居中主容器 无右边栏 */
+        /* 主容器 */
         .wrap {
             max-width: 850px;
-            margin: -60px auto 60px;
+            margin: -50px auto 50px;
             position: relative;
             z-index: 2;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         /* 日记列表 */
         .diary-list {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
         }
 
-        /* 高级卡片 */
+        /* 卡片 */
         .diary-card {
             background: #fff;
             display: flex;
@@ -88,13 +89,15 @@
         }
 
         .diary-card img {
-            width: 220px;
-            height: 170px;
+            width: 200px;
+            height: 150px;
             object-fit: cover;
+            /* 防止图片被压缩变形 */
+            flex-shrink: 0;
         }
 
         .card-text {
-            padding: 26px;
+            padding: 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -102,26 +105,50 @@
         }
 
         .card-text h3 {
-            font-size: 20px;
+            font-size: 18px;
             color: #2c3e50;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-weight: 600;
         }
 
         .card-text p {
-            font-size: 15px;
+            font-size: 14px;
             color: #666;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
-        /* 页脚 */
         footer {
             text-align: center;
-            padding: 30px 0;
-            font-size: 14px;
+            padding: 25px 0;
+            font-size: 13px;
             color: #999;
             background: #fff;
             border-top: 1px solid #eee;
+        }
+
+        /* 关键：手机端适配规则 */
+        @media (max-width: 600px) {
+            .diary-card {
+                flex-direction: row; /* 强制保持横排 */
+            }
+            .diary-card img {
+                width: 120px;
+                height: 100px;
+            }
+            .card-text {
+                padding: 12px;
+            }
+            .card-text h3 {
+                font-size: 16px;
+            }
+            .card-text p {
+                font-size: 13px;
+                line-height: 1.6;
+            }
+            nav a {
+                margin: 0 8px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -129,51 +156,47 @@
 
 <!-- 导航 -->
 <nav>
-    
+    <a href="index.html">首页</a>
     <a href="#">旅行日记</a>
-    <a href="photos.html">风景相册</a>
-    <a href="profile.html">关于我</a>
+    <a href="#">风景相册</a>
+    <a href="#">关于我</a>
 </nav>
 
-<!-- 顶部大图 无任何文字 -->
+<!-- 顶部大图 -->
 <div class="banner"></div>
 
-<!-- 主内容 纯居中 无右侧栏 -->
+<!-- 主内容 -->
 <div class="wrap">
     <div class="diary-list">
-
-        <!-- 日记1 可点击跳转 -->
+        <!-- 日记1 -->
         <a href="diary1.html" class="diary-card">
-            <img src="https://picsum.photos/id/1019/220/170">
+            <img src="https://picsum.photos/id/1019/200/150">
             <div class="card-text">
                 <h3>大连海滨旅行日记</h3>
                 <p>沿着海岸线慢行，听海风低语，看落日漫染海面，把旅途的温柔都收藏在记忆里。</p>
             </div>
         </a>
-
         <!-- 日记2 -->
         <a href="diary2.html" class="diary-card">
-            <img src="https://picsum.photos/id/1015/220/170">
+            <img src="https://picsum.photos/id/1015/200/150">
             <div class="card-text">
                 <h3>星海广场漫步随笔</h3>
                 <p>城市与大海相拥，白日海鸥成群，暮色晚风微凉，是独属于海滨城市的浪漫。</p>
             </div>
         </a>
-
         <!-- 日记3 -->
         <a href="diary3.html" class="diary-card">
-            <img src="https://picsum.photos/id/292/220/170">
+            <img src="https://picsum.photos/id/292/200/150">
             <div class="card-text">
                 <h3>大连美食生活记录</h3>
                 <p>山海之间，烟火入味，用味蕾感受一座城市的温度与风情。</p>
             </div>
         </a>
-
     </div>
 </div>
 
 <footer>
-    青春没有售价，旅行就再当下
+    © 2026 个人旅游日记 | 记录每一段旅途
 </footer>
 
 </body>
